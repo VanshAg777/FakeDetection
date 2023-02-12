@@ -83,16 +83,15 @@ class FFNN(nn.Module):
         self.d_model = d_model
         self.d_hidden = d_hidden
         self.dropout = dropout
-        self.embeds = nn.Embedding(self.vocab_size,d_model)
+        self.embeds = nn.Embedding(vocab_size,d_model)
 #          {perform other initializations needed for the FFNN}
 
     def forward(self, src):
         embeds = self.dropout(self.embeds(src))
 #          {add code to implement the FFNN}
-        # return x
+        return x
                 
     def init_weights(self):
-        pass
 #          {perform initializations}
         
         
@@ -106,24 +105,21 @@ class LSTM(nn.Module):
         self.n_layers = n_layers
         self.d_hidden = d_hidden
         self.d_model = d_model
-        self.embeds = nn.Embedding(self.vocab_size,d_model)
+        self.embeds = nn.Embedding(vocab_size,d_model)
 #          {perform other initializations needed for the LSTM}
         
     def forward(self,src,h):
         embeds = self.dropout(self.embeds(src))
-        pass
 #          {add code to implement the LSTM}        
-        # return [preds,h]
+        return [preds,h]
     
     def init_weights(self):
-        pass
 #          {perform initializations}
         
     
     def detach_hidden(self, hidden):
-        pass
 #          {needed for training...}
-        # return [hidden, cell]  
+        return [hidden, cell]  
     
 def main():
     
@@ -156,19 +152,15 @@ def main():
     params.vocab_size = len(vocab)
     
     if params.model == 'FFNN':
-        pass
 #          {add code to instantiate the model, train for K epochs and save model to disk}
         
     if params.model == 'LSTM':
-        pass
 #          {add code to instantiate the model, train for K epochs and save model to disk}
 
     if params.model == 'FFNN_CLASSIFY':
-        pass
 #          {add code to instantiate the model, recall model parameters and perform/learn classification}
 
     if params.model == 'LSTM_CLASSIFY':
-        pass
 #          {add code to instantiate the model, recall model parameters and perform/learn classification}
         
     print(params)
